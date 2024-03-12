@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<bug-squash level="Level Zero">
+  <program name="Bug Squash" x="1000" y="500">
+    <bug type="garbage" x="-100" y="200" speed="120" start="0"/>
+    <bug type="garbage" x="-100" y="300" speed="200" start="10"/>
+    <bug type="null" x="-100" y="400" speed="120" start="20"/>
+    <bug type="redundancy" x="-100" y="500" speed="120" start="30"/>
+    <feature x="-100" y="600" speed="120" start="50"/>
+    <feature x="-100" y="600" speed="120" start="60"/>
+    <bug type="garbage" x="-100" y="600" speed="60" start="80">
+      <code pass="int.*mScore.*=.*[0-9]*.*;"><![CDATA[/**
+ * The game scoreboard/scoring area
+ */
+class ScoreBoard
+{
+private:
+    /// The current score
+    int mScore;
+
+public:
+    void Draw(std::shared_ptr<wxGraphicsContext> graphics);
+};
+]]></code>
+    </bug>
+
+  </program>
+</bug-squash>

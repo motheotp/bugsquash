@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<bug-squash level="Many Teams">
+    <program name="Receivables" x="300" y="200">
+
+        <bug type="null" x="500" y="-100" speed="120" start="0"/>
+        <bug type="garbage" x="1350" y="1300" speed="150" start="1.5"/>
+
+        <bug type="null" x="500" y="1400" speed="150" start="2"/>
+
+        <feature x="600" y="1100" speed="120" start="2"/>
+
+        <bug type="garbage" x="-100" y="900" speed="60" start="3">
+            <code pass="int.*mFixed.*=.*[0-9]*.*;"><![CDATA[/**
+ * The game scoreboard/scoring area
+ */
+class ScoreBoard
+{
+private:
+    /// The current score
+    int mFixed;
+
+public:
+    void Draw(std::shared_ptr<wxGraphicsContext> graphics);
+};
+]]></code>
+
+        </bug>
+
+        <bug type="null" x="1550" y="1190" speed="160" start="15"/>
+
+        <bug type="redundancy" x="100" y="1300" speed="90" start="14"/>
+
+        <feature x="1300" y="500" speed="150" start="14"/>
+
+    </program>
+
+    <program name="SIS" x="600" y="800">
+
+        <bug type="null" x="500" y="-100" speed="100" start="2"/>
+
+        <bug type="garbage" x="-100" y="100" speed="120" start="5"/>
+
+        <feature x="200" y="-100" speed="160" start="6"/>
+
+        <feature x="1140" y="1400" speed="180" start="11"/>
+
+        <bug type="null" x="1550" y="190" speed="20" start="11"/>
+
+        <feature x="-100" y="-100" speed="170" start="14"/>
+
+        <bug type="null" x="1000" y="1180" speed="80" start="8"/>
+
+        <bug type="garbage" x="1050" y="-100" speed="150" start="8"/>
+
+        <feature x="200" y="-700" speed="150" start="12"/>
+
+        <bug type="garbage" x="-100" y="1150" speed="80" start="12">
+            <code pass="bool.*mPause.*=.*(true|false).*;"><![CDATA[/**
+ * The game scoreboard/scoring area
+ */
+class ScoreBoard
+{
+private:
+    /// The current pause status
+    bool mPause;
+
+public:
+    void DrawPauseBox(std::shared_ptr<wxGraphicsContext> graphics);
+};
+]]> </code>
+        </bug>
+
+    </program>
+
+
+    <program name="Enrollment" x="850" y="200">
+
+        <bug type="null" x="1050" y="-100" speed="150" start="2"/>
+
+        <bug type="garbage" x="-100" y="100" speed="120" start="4"/>
+
+        <bug type="redundancy" x="1000" y="1150" speed="85" start="7"/>
+
+        <feature x="100" y="1160" speed="120" start="9"/>
+
+        <bug type="garbage" x="1000" y="-100" speed="120" start="10"/>
+
+        <bug type="garbage" x="1550" y="190" speed="80" start="13">
+            <code pass="int.*mCoordinates.*\[(mArraySize|2) .*\].*=.*{[0-9]+\, [0-9]+};"><![CDATA[/**
+ *Our graph points class
+ */
+class GraphPoints
+{
+private:
+    // mArraySize is the size of array mCoordinates
+    int mArraySize = 2
+
+    // 2 positive integers as starting points
+    int mCoordinates[2];
+
+public:
+    void LoadPoint(int x);
+};
+]]> </code>
+        </bug>
+    </program>
+
+</bug-squash>

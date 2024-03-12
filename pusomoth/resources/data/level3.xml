@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<bug-squash level="Level Three">
+  <program name="Cookie Monster" x="1000" y="750">
+    <bug type="zombie" x="-200" y="750" speed="150" start="0" reviveCount="2"/>
+    <bug type="garbage" x="-200" y="700" speed="60" start="2"/>
+    <bug type="null" x="-200" y="800" speed="120" start="4"/>
+    <feature x="-200" y="750" speed="150" start="6"/>
+    <bug type="race" x="-200" y="800" speed="100" start="8" id="2"/>
+    <bug type="race" x="-200" y="700" speed="100" start="12" id="1"/>
+    <bug type="null" x="-200" y="800" speed="120" start="16"/>
+    <bug type="zombie" x="-200" y="750" speed="150" start="18" reviveCount="1"/>
+    <feature x="1000" y="1300" speed="120" start="20"/>
+    <bug type="null" x="-200" y="700" speed="120" start="23"/>
+    <bug type="garbage" x="-200" y="1300" speed="60" start="25">
+      <code pass="int.*mNumCookies.*=.*[0-9]*.*;"><![CDATA[/**
+ * The cookie jar class
+ */
+class CookieJar
+{
+private:
+    /// The number of cookies in the jar
+    int mNumCookies;
+};
+]]></code>
+    </bug>
+    <bug type="null" x="-100" y="800" speed="120" start="25">
+      <code pass="if.*\(.*mCookieJar.*!=.*nullptr.*\).*\n.*\{.*\n.*int.*numCookies.*=.*mCookieJar->GetNumCookies\(\);.*\n.*"><![CDATA[
+  int numCookies = mCookieJar->GetNumCookies();
+
+return numCookies;
+]]></code>
+    </bug>
+  </program>
+  <program name="CookieJar" x="1000" y="250">
+    <bug type="null" x="-200" y="200" speed="120" start="0"/>
+    <bug type="garbage" x="-200" y="300" speed="60" start="5"/>
+    <bug type="null" x="-200" y="300" speed="120" start="10"/>
+    <bug type="garbage" x="-200" y="200" speed="60" start="15"/>
+    <bug type="zombie" x="-200" y="300" speed="150" start="18" reviveCount="2"/>
+    <bug type="redundancy" x="-200" y="250" speed="100" start="20"/>
+    <bug type="race" x="-200" y="200" speed="100" start="20" id="4"/>
+    <bug type="race" x="-200" y="300" speed="100" start="28" id="3"/>
+  </program>
+</bug-squash>

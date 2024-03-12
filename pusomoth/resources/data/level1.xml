@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<bug-squash level="Single Team">
+  <program name="Bug Squash" x="625" y="500">
+    <bug type="garbage" x="500" y="-100" speed="120" start="0"/>
+    <bug type="garbage" x="1350" y="100" speed="150" start="3"/>
+
+    <bug type="null" x="-100" y="500" speed="150" start="5"/>
+    <bug type="redundancy" x="1000" y="-100" speed="120" start="8"/>
+    <feature x="600" y="1100" speed="120" start="10"/>
+
+    <bug type="garbage" x="-100" y="900" speed="60" start="10">
+      <code pass="int.*mScore.*=.*[0-9]+.*;"><![CDATA[/**
+ * The game scoreboard/scoring area
+ */
+class ScoreBoard
+{
+private:
+    /// The current score
+    int mScore;
+
+public:
+    void Draw(std::shared_ptr<wxGraphicsContext> graphics);
+};
+]]></code>
+    </bug>
+    <bug type="null" x="500" y="1100" speed="150" start="12"/>
+    <feature x="600" y="-100" speed="120" start="13"/>
+
+    <bug type="garbage" x="-100" y="100" speed="120" start="15"/>
+    <bug type="null" x="1350" y="1100" speed="150" start="18">
+      <code pass="if.*\(.*mCode.*!=.*nullptr.*\).*\n.*\{.*\n.*mCode->Clear\(\);.*\n.*"><![CDATA[
+    GetGame()->SetPause(false);
+
+    mCode->Clear();
+
+    return true;
+]]></code>
+    </bug>
+    <bug type="redundancy" x="-100" y="1200" speed="120" start="20"/>
+    <bug type="garbage" x="-100" y="900" speed="60" start="23">
+      <code pass="Player.*\*.*mPlayer.*=.*nullptr.*;"><![CDATA[/**
+ * Our game class
+ */
+class Game
+{
+private:
+    /// The active player
+    Player *mPlayer;
+
+public:
+    void LoadLevel(int level);
+};
+]]></code>
+    </bug>
+
+  </program>
+
+</bug-squash>
